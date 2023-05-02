@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { BiLike } from "react-icons/bi";
+import Recipes from './Recipes';
 
 const ChefDetails = () => {
     const [data, setData] = useState([])
+    const [recipe, setRecipe] = useState({})
     const { id } = useParams();
-    console.log(data);
+
+    // console.log(typeof recipe)
+
     useEffect(() => {
         fetch(`http://localhost:5000/chefs/${id}`)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+                setRecipe(data.recipes)
+            })
+
     }, [])
 
 
@@ -33,6 +41,12 @@ const ChefDetails = () => {
                     </div>
                 </div>
             }
+            <div>
+                {/* recipe section */}
+                {
+                    data && <Recipes id={id}></Recipes>
+                }
+            </div>
         </section>
     );
 };
