@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const RecipeCard = ({ detail }) => {
+    const [favorite, setFavorite] = useState(false)
     const { recipe_name, cooking_method, ingredients, photoUrl } = detail;
     const lists = ingredients.map((e, index) => <li key={index}>{e}</li>)
     // console.log(detail)
@@ -19,7 +21,18 @@ const RecipeCard = ({ detail }) => {
                     <h5 className='text-lg font-semibold'>Cooking Methods</h5>
                     <p>{cooking_method}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={() => {
+                            setFavorite(true);
+                            toast.success(`${recipe_name} your favorite recipe!`,
+                                {
+                                    style: {
+                                        borderRadius: '10px',
+                                        background: '#333',
+                                        color: '#fff',
+                                    },
+                                }
+                            );
+                        }} disabled={favorite} className="btn btn-primary">Favorite </button>
                     </div>
                 </div>
             </div>
