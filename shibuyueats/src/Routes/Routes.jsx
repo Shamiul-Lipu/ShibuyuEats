@@ -6,6 +6,7 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Pages/Home";
+import Chefs from "../Pages/Chefs";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
                 element: <Register />
             }
         ]
+    },
+    {
+        path: 'chefs',
+        element: <Chefs />,
     }
 ])
 
