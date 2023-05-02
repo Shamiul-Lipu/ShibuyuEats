@@ -3,7 +3,7 @@ import RecipeCard from './RecipeCard';
 
 const Recipes = ({ id }) => {
     const [recipes, setRecipes] = useState([])
-    console.log(recipes.length)
+    // console.log(recipes.length)
     useEffect(() => {
         fetch(`http://localhost:5000/recipes/${id}`)
             .then(res => res.json())
@@ -13,7 +13,7 @@ const Recipes = ({ id }) => {
             })
     }, [])
     return (
-        <div className='grid grid-cols-2 gap-5 py-10'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10'>
             {
                 recipes && recipes.map((detail, index) => <RecipeCard key={index} detail={detail}></RecipeCard>)
             }

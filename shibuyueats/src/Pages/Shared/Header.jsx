@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import {
     Bars3BottomRightIcon,
     XMarkIcon,
 } from '@heroicons/react/24/solid'
 import Logo from '../../assets/icons/bowl.png'
+import { AuthContext } from '../../Provider/AuthProvider'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { user } = useContext(AuthContext)
     // mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8
     return (
-        <div className='bg-gradient-to-r from-teal-200'>
-            <div className='bg-gradient-to-r from-teal-200 container mx-auto relative flex items-center justify-between  p-3 rounded-lg'>
+        <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%'>
+            <div className='bg-gradient-to-r from-indigo-400 from-10% via-sky-500 via-30% to-emerald-400 to-90% container mx-auto relative flex items-center justify-between  p-3 rounded-lg'>
                 {/* Logo Section */}
                 <Link to='/' className='inline-flex items-center'>
                     <img className='h-12 w-12 text-blue-500' src={Logo} alt="" />

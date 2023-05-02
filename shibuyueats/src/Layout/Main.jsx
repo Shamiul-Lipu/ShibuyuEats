@@ -4,6 +4,7 @@ import Footer from '../Pages/Shared/Footer';
 import { Outlet } from 'react-router-dom';
 
 const Main = () => {
+
     return (
         <>
             <Header></Header>

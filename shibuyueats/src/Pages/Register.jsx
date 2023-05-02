@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
+    const { createUser, auth } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,6 +21,19 @@ const Register = () => {
             setError('The password is less than 6 characters')
         }
         console.log(name, photo, email, password)
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: `${photo}`
+                })
+                console.log(createdUser)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
     return (

@@ -1,13 +1,13 @@
 import React from 'react';
 
 const RecipeCard = ({ detail }) => {
-    const { recipe_name, cooking_method, ingredients } = detail;
-    const lists = ingredients.map(e => <li>{e}</li>)
-    console.log(detail)
+    const { recipe_name, cooking_method, ingredients, photoUrl } = detail;
+    const lists = ingredients.map((e, index) => <li key={index}>{e}</li>)
+    // console.log(detail)
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <div className="card border border-gray-300 w-96 bg-base-100 shadow-xl">
+                <figure className='bg-black'><img src={photoUrl} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{recipe_name}</h2>
                     <ul>
