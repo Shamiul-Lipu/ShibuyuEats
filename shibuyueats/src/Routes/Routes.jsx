@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import Chefs from "../Pages/Chefs";
 import ChefDetails from "../Pages/ChefDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             //     children: [
             {
                 path: '/chefs/:id',
-                element: <ChefDetails />,
+                element: <PrivateRoute><ChefDetails /></PrivateRoute>,
             }
             //     ]
             // }

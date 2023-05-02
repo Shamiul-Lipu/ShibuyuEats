@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { BiLike } from "react-icons/bi";
 import Recipes from './Recipes';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const ChefDetails = () => {
     const [data, setData] = useState([])

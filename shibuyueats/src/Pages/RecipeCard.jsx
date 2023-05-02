@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 
 const RecipeCard = ({ detail }) => {
     const [favorite, setFavorite] = useState(false)
-    const { recipe_name, cooking_method, ingredients, photoUrl } = detail;
+    const { recipe_name, cooking_method, ingredients, photoUrl, rating } = detail;
     const lists = ingredients.map((e, index) => <li key={index}>{e}</li>)
     // console.log(detail)
     return (
@@ -20,6 +23,12 @@ const RecipeCard = ({ detail }) => {
                     </ul>
                     <h5 className='text-lg font-semibold'>Cooking Methods</h5>
                     <p>{cooking_method}</p>
+                    <div className='flex justify-start items-center'>
+                        <Rating
+                            style={{ maxWidth: 100 }}
+                            value={Math.round(rating || 0)} readOnly />
+                        <span className='ms-2 font-bold'> {rating} out of 5.00</span>
+                    </div>
                     <div className="card-actions justify-end">
                         <button onClick={() => {
                             setFavorite(true);

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import {
     Bars3BottomRightIcon,
     XMarkIcon,
@@ -11,10 +11,11 @@ import { HiUserCircle } from "react-icons/hi2";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
     // console.log(user)
     const handleLogOut = () => {
         logOut()
-            .then()
+            .then(navigate('/'))
             .catch(error => console.log(error));
     }
     // mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8
@@ -55,7 +56,7 @@ const Header = () => {
                     <li>
                         <NavLink
                             to='/'
-                            className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                            className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                         >
                             Home
                         </NavLink>
@@ -64,12 +65,12 @@ const Header = () => {
 
                         {
                             user ?
-                                <button onClick={handleLogOut} className="btn btn-primary">LogOut</button>
+                                <button onClick={handleLogOut} className="btn btn-active btn-primary">LogOut</button>
                                 : <NavLink
                                     to='/login'
-                                    className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                                    className={({ isActive }) => (isActive ? 'btn btn-primary' : 'btn btn-outline btn-primary')}
                                 >
-                                    <button className="btn btn-outline btn-primary text-emerald-700">Login</button>
+                                    {/* <button className="btn btn-outline btn-primary ">Login</button> */} Login
                                 </NavLink>
                         }
 
@@ -78,7 +79,7 @@ const Header = () => {
                     <li>
                         <NavLink
                             to='/register'
-                            className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                            className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                         >
                             Register
                         </NavLink>
@@ -87,7 +88,7 @@ const Header = () => {
                     <li>
                         <NavLink
                             to='/blog'
-                            className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                            className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                         >
                             Blog
                         </NavLink>

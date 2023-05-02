@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
     const { user, signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -13,9 +16,12 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-
+                console.log(loggedUser);
+                navigate(from, { replace: true })
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div>
