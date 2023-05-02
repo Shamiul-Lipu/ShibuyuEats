@@ -3,7 +3,7 @@ import ChefsCard from './ChefsCard';
 
 const Chefs = () => {
     const [data, setData] = useState([]);
-    console.log(data);
+    // console.log(data);
     useEffect(() => {
         fetch('http://localhost:5000/chefs')
             .then(res => res.json())

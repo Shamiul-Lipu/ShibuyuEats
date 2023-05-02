@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import Chefs from "../Pages/Chefs";
+import ChefDetails from "../Pages/ChefDetails";
 
 const router = createBrowserRouter([
     {
@@ -24,13 +25,20 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register />
+            },
+            // {
+            //     path: '/',
+            //     element: <Chefs />,
+            //     children: [
+            {
+                path: '/chefs/:id',
+                element: <ChefDetails />,
             }
+            //     ]
+            // }
         ]
-    },
-    {
-        path: 'chefs',
-        element: <Chefs />,
     }
+
 ])
 
 export default router;
