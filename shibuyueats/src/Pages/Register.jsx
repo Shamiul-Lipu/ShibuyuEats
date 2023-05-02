@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -27,6 +28,13 @@ const Register = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: `${photo}`
+                })
+                toast.success('Successfully User Created!', {
+                    style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                    }
                 })
                 console.log(createdUser)
             })
@@ -59,7 +67,7 @@ const Register = () => {
                         <p className='text-red-500 font-medium'>{error}</p>
                         <label className="input-group input-group-md py-2">
                             <span className='w-1/3'>PhotoUrl:</span>
-                            <input onChange={(e) => setPassword(e.target.value)} type="text" name='photo' placeholder="url" className="input input-bordered input-md w-full" required />
+                            <input onChange={(e) => setPassword(e.target.value)} type="text" name='photo' placeholder="url" className="input input-bordered input-md w-full" />
                         </label>
                         {/* <input type='submit' value='Register' className="btn btn-info" /> */}
                         <button type='submit' className='btn btn-primary w-full'>Register</button>

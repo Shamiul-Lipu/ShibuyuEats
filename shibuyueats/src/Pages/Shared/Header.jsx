@@ -6,10 +6,17 @@ import {
 } from '@heroicons/react/24/solid'
 import Logo from '../../assets/icons/bowl.png'
 import { AuthContext } from '../../Provider/AuthProvider'
+import { HiUserCircle } from "react-icons/hi2";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    // console.log(user)
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error));
+    }
     // mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8
     return (
         <div className='bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%'>
@@ -25,9 +32,19 @@ const Header = () => {
                 {/* User display section */}
                 <label tabIndex={0} className={`btn btn-ghost btn-circle avatar`}>
                     <div className={` w-40  rounded-full`}>
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        {
+                            user && (
+                                user?.photoURL
+                                    ? <img src={user?.photoURL} />
+                                    : <HiUserCircle className='w-full h-full' />
+                            )
+                        }
                         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100">
-                            <span className="bg-gray-900 text-white py-1 px-2 rounded">Tag Namesf</span>
+                            {
+                                user && <span className="bg-gray-900 text-white py-1 px-2 rounded">
+                                    {user.displayName}
+                                </span>
+                            }
                         </div>
                     </div>
 
@@ -44,12 +61,28 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li>
+
+                        {
+                            user ?
+                                <button onClick={handleLogOut} className="btn btn-primary">LogOut</button>
+                                : <NavLink
+                                    to='/login'
+                                    className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                                >
+                                    <button className="btn btn-outline btn-primary text-emerald-700">Login</button>
+                                </NavLink>
+                        }
+
+
+                    </li>
+                    <li>
                         <NavLink
-                            to='/login'
+                            to='/register'
                             className={({ isActive }) => (isActive ? 'font-medium tracking-wide text-emerald-700 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                         >
-                            <button className="btn btn-outline btn-primary text-emerald-700">Login</button>
+                            Register
                         </NavLink>
+
                     </li>
                     <li>
                         <NavLink
@@ -103,11 +136,23 @@ const Header = () => {
                                             </Link>
                                         </li>
                                         <li>
+                                            {
+                                                user
+                                                    ? <button onClick={handleLogOut} className="btn btn-primary">LogOut</button>
+                                                    : <Link
+                                                        to='/login'
+                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                                                    >
+                                                        <button className="btn btn-outline btn-primary">Login</button>
+                                                    </Link>
+                                            }
+                                        </li>
+                                        <li>
                                             <Link
-                                                to='/login'
+                                                to='/register'
                                                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
                                             >
-                                                <button className="btn btn-outline btn-primary">Login</button>
+                                                Register
                                             </Link>
                                         </li>
                                         <li>

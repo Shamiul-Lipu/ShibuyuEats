@@ -13,11 +13,11 @@ const ChefsCard = ({ chef }) => {
                 <div>
                     <p>Experience: {experience}</p>
                     <p className=' font-bold text-green-700'>Number of Recipes: {num_of_recipes}</p>
-                    <p className='flex justify-start items-center text-lg font-extrabold text-blue-700'><BiLike /> {like}</p>
+                    <p className='flex justify-start items-center text-lg font-extrabold text-blue-700'><BiLike /> {like} Likes</p>
                 </div>
                 <div className="card-actions justify-end">
                     <Link to={`chefs/${id}`}>
-                        <button className="btn btn-primary">Recipes</button>
+                        <button className="btn btn-primary">View Recipes</button>
                     </Link>
                 </div>
             </div>
