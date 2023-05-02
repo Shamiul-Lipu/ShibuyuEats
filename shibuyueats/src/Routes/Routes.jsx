@@ -9,11 +9,13 @@ import Home from "../Pages/Home";
 import Chefs from "../Pages/Chefs";
 import ChefDetails from "../Pages/ChefDetails";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

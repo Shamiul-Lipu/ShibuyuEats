@@ -45,16 +45,16 @@ const Register = () => {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-10'>
             <div className="card flex-shrink-0 w-full mt-4 shadow-2xl bg-base-100">
                 <div className="card-body items-center ">
-                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-lime-900">Register Please!</h1>
+                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-lime-900 py-2">Register Please!</h1>
 
 
                     <form action="" onSubmit={handleSubmit} >
                         <label className="input-group input-group-md mb-2">
                             <span className='w-1/3'>Name</span>
-                            <input type="text" name='name' placeholder="name" className="input input-bordered input-md w-full" required />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered input-md w-full" />
                         </label>
                         <label className="input-group input-group-md">
                             <span className='w-1/3'>Email</span>

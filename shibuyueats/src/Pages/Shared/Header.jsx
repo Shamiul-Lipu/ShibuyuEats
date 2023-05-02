@@ -25,31 +25,41 @@ const Header = () => {
                 {/* Logo Section */}
                 <Link to='/' className='inline-flex items-center'>
                     <img className='h-12 w-12 text-blue-500' src={Logo} alt="" />
-                    <span className='ml-2 text-xl font-bold tracking-wide text-gray-800'>
-                        Shibuyu<span className='text-blue-700'>Eats</span>
+                    <span className='ml-2 text-xl font-bold tracking-wide  bg-gradient-to-r from-indigo-900 via-emerald-900 to-purple-900 text-transparent bg-clip-text'>
+                        Shibuyu<span className='text-blue-900'>Eats</span>
                     </span>
                 </Link>
 
                 {/* User display section */}
-                <label tabIndex={0} className={`btn btn-ghost btn-circle avatar`}>
-                    <div className={` w-40  rounded-full`}>
-                        {
-                            user && (
-                                user?.photoURL
-                                    ? <img src={user?.photoURL} />
-                                    : <HiUserCircle className='w-full h-full' />
-                            )
-                        }
-                        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100">
-                            {
-                                user && <span className="bg-gray-900 text-white py-1 px-2 rounded">
-                                    {user.displayName}
-                                </span>
-                            }
-                        </div>
-                    </div>
+                {
+                    user && (
+                        <label tabIndex={0} className={`btn btn-ghost btn-circle avatar`}>
+                            <div className={` w-40  rounded-full`}>
+                                {
+                                    user && (
+                                        user?.photoURL
+                                            ? <img src={user?.photoURL} />
+                                            : <HiUserCircle className='w-full h-full' />
+                                    )
+                                }
+                                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100">
+                                    {
+                                        user && (
+                                            user?.displayName
+                                                ? <span className="bg-gray-900 text-white py-1 px-2 rounded">
+                                                    {user.displayName}
+                                                </span>
+                                                : <span className="bg-gray-900 text-white py-1 px-2 rounded">
+                                                    Name not found
+                                                </span>
+                                        )
+                                    }
+                                </div>
+                            </div>
 
-                </label>
+                        </label>
+                    )
+                }
 
                 {/* Nav Items Section */}
                 <ul className='items-center hidden space-x-8 lg:flex'>
@@ -62,7 +72,6 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li>
-
                         {
                             user ?
                                 <button onClick={handleLogOut} className="btn btn-active btn-primary">LogOut</button>
@@ -73,8 +82,6 @@ const Header = () => {
                                     {/* <button className="btn btn-outline btn-primary ">Login</button> */} Login
                                 </NavLink>
                         }
-
-
                     </li>
                     <li>
                         <NavLink
@@ -128,41 +135,71 @@ const Header = () => {
                                         </button>
                                     </div>
                                 </div>
+
+                                {/* User display section */}
+                                {
+                                    user && (
+                                        <label tabIndex={0} className={`btn btn-ghost btn-circle avatar`}>
+                                            <div className={` w-40  rounded-full`}>
+                                                {
+                                                    user && (
+                                                        user?.photoURL
+                                                            ? <img src={user?.photoURL} />
+                                                            : <HiUserCircle className='w-full h-full' />
+                                                    )
+                                                }
+                                                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100">
+                                                    {
+                                                        user && <span className="bg-gray-900 text-white py-1 px-2 rounded">
+                                                            {user.displayName}
+                                                        </span>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                        </label>
+                                    )
+                                }
+
                                 {/* Mobile Nav Items Section */}
                                 <nav>
                                     <ul className='space-y-4'>
                                         <li>
-                                            <Link to='/' className='default'>
+                                            <NavLink
+                                                to='/'
+                                                className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
+                                            >
                                                 Home
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         <li>
                                             {
-                                                user
-                                                    ? <button onClick={handleLogOut} className="btn btn-primary">LogOut</button>
-                                                    : <Link
+                                                user ?
+                                                    <button onClick={handleLogOut} className="btn btn-active btn-primary">LogOut</button>
+                                                    : <NavLink
                                                         to='/login'
-                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                                                        className={({ isActive }) => (isActive ? 'btn btn-primary' : 'btn btn-outline btn-primary')}
                                                     >
-                                                        <button className="btn btn-outline btn-primary">Login</button>
-                                                    </Link>
+                                                        {/* <button className="btn btn-outline btn-primary ">Login</button> */} Login
+                                                    </NavLink>
                                             }
                                         </li>
                                         <li>
-                                            <Link
+                                            <NavLink
                                                 to='/register'
-                                                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                                                className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                                             >
                                                 Register
-                                            </Link>
+                                            </NavLink>
+
                                         </li>
                                         <li>
-                                            <Link
+                                            <NavLink
                                                 to='/blog'
-                                                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                                                className={({ isActive }) => (isActive ? 'font-bold text-lg tracking-wide text-indigo-600 transition-colors duration-200 hover:text-blue-400' : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400')}
                                             >
                                                 Blog
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                     </ul>
                                 </nav>

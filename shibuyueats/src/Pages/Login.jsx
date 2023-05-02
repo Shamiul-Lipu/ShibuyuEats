@@ -28,7 +28,7 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
-                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-lime-900">Login Please!</h1>
+                    <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-lime-900 py-2">Login Please!</h1>
 
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
