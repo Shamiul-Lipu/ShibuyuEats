@@ -6,7 +6,7 @@ const ChefsCard = ({ chef }) => {
     const { id, experience, like, name, num_of_recipes, photoUrl } = chef
     // console.log(chef);
     return (
-        <div className="card border border-gray-300 lg:card-side bg-base-100 shadow-xl">
+        <div className={`card border h-[32rem] border-gray-300 lg:card-side bg-base-100 shadow-xl`}>
             <figure className='bg-black'><img src={photoUrl} alt="Album" /></figure>
             <div className="card-body">
                 <h2 className="card-title font-extrabold text-2xl">{name}</h2>

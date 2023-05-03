@@ -35,9 +35,9 @@ const ChefDetails = () => {
                             <div>
                                 <p>Experience: {data.experience}</p>
                                 <p className=' font-bold text-green-200'>Number of Recipes: {data.num_of_recipes}</p>
-                                <p className='flex justify-start items-center text-lg font-extrabold text-blue-100'><BiLike /> {data.like}</p>
+                                <p className='flex justify-start items-center text-lg font-extrabold text-blue-100'><BiLike /> {data.like} Likes</p>
                             </div>
-                            <button className="btn btn-primary">Get Started</button>
+
                         </div>
                     </div>
                 </div>

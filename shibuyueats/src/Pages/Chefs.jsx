@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ChefsCard from './ChefsCard';
 import Loading from './Loading';
+import LazyLoad from 'react-lazy-load';
+
 
 const Chefs = () => {
     const [data, setData] = useState([]);
@@ -17,7 +19,7 @@ const Chefs = () => {
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     data
-                        ? data.map(chef => <ChefsCard key={chef.id} chef={chef}></ChefsCard>)
+                        ? data.map(chef => <LazyLoad key={chef.id} height={512} threshold={0.50}><ChefsCard key={chef.id} chef={chef}></ChefsCard></LazyLoad>)
                         : <Loading />
                 }
             </div>
