@@ -1,4 +1,8 @@
 import React from 'react';
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const Blog = () => {
     return (
@@ -6,7 +10,12 @@ const Blog = () => {
             <div className='py-7'>
                 <h3 className='text-center text-5xl font-semibold'>Blog</h3>
             </div>
-            <div className='py-12 px-5 text-left grid gap-8'>
+            <div className='text-center'>
+                <Pdf className="" targetRef={ref} filename="blog.pdf">
+                    {({ toPdf }) => <button className='btn btn-accent' onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
+            </div>
+            <div ref={ref} className='py-12 px-5 text-left grid gap-8'>
                 <div>
                     <h3 className='text-2xl font-semibold'>i. Tell us the differences between uncontrolled and controlled components.</h3>
                     <p>

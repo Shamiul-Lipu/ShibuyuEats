@@ -19,7 +19,7 @@ const Chefs = () => {
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
                     data
-                        ? data.map(chef => <LazyLoad key={chef.id} height={512} threshold={0.50}><ChefsCard key={chef.id} chef={chef}></ChefsCard></LazyLoad>)
+                        ? data.map(chef => <LazyLoad key={chef.id} height={512} threshold={0.70}><ChefsCard key={chef.id} chef={chef}></ChefsCard></LazyLoad>)
                         : <Loading />
                 }
             </div>
