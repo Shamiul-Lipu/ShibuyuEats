@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Chefs from './Chefs';
+import Contributor from './Extra/Contributor';
+import Reviews from './Extra/Reviews';
 
 const Home = () => {
     return (
@@ -27,6 +29,14 @@ const Home = () => {
             {/* chefs section starts */}
             <section className='container mx-auto py-10'>
                 <Chefs></Chefs>
+            </section>
+            {/* Extra Features Sections */}
+            {/* Extra Features Sections */}
+            <section>
+                <Contributor></Contributor>
+            </section>
+            <section>
+                <Reviews></Reviews>
             </section>
         </section>
     );
