@@ -13,7 +13,7 @@ const Home = () => {
 
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
-                            <h1 className="mb-5 text-7xl text- font-bold font-mono bg-gradient-to-r from-emerald-300 via-cyan-100 to-purple-400 text-transparent bg-clip-text">Welcome to ShibuyuEats</h1>
+                            <h1 className="mb-5 text-4xl md:text-7xl lg:text-7xl text- font-bold font-mono bg-gradient-to-r from-emerald-300 via-cyan-100 to-purple-400 text-transparent bg-clip-text">Welcome to ShibuyuEats</h1>
                             <div className='text-gray-300 font-semibold'>
                                 <h5>Cook up a storm with our mouth-watering recipes that will leave your guests asking for more.</h5>
                                 <p className="mb-5">Get access to exclusive recipes from top chefs around the world and impress your guests.</p>

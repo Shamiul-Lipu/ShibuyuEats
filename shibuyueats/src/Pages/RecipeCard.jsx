@@ -11,7 +11,7 @@ const RecipeCard = ({ detail }) => {
     // console.log(detail)
     return (
         <div>
-            <div className="card border border-gray-300 w-96 bg-base-100 shadow-xl">
+            <div className="card border border-gray-300  w-full md:w-96 lg:96 bg-base-100 shadow-xl">
                 <figure className='bg-black'><img src={photoUrl} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{recipe_name}</h2>

@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
     const { createUser, auth } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,14 +31,17 @@ const Register = () => {
                     displayName: name,
                     photoURL: `${photo}`
                 })
-                toast.success('Successfully User Created!', {
+                toast.success('User Successfully Created!', {
                     style: {
                         borderRadius: '10px',
                         background: '#333',
                         color: '#fff',
                     }
                 })
-                console.log(createdUser)
+                swal("Successfully", "User Created!", "success");
+                form.reset();
+                navigate('/')
+                // console.log(createdUser)
             })
             .catch(error => {
                 console.log(error)

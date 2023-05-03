@@ -27,7 +27,7 @@ const Reviews = () => {
             <h3 className="text-5xl font-bold text-center py-5">What they say?</h3>
             <h3 className='text-center font-semibold text-lg'>"Cook with Confidence,  Reviews from Customers Who Succeeded with Our Recipes"</h3>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={2}
                 spaceBetween={30}
                 freeMode={true}
                 autoplay={{

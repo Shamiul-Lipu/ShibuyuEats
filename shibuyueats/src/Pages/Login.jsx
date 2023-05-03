@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
+import swal from 'sweetalert';
 
 
 const Login = () => {
+    const [error, setError] = useState("");
     const { user, signInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,14 +18,18 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
         signInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
+                form.reset();
                 navigate(from, { replace: true })
+                swal("Good job!", "User Logged In Successfully!", "success");
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
+                // console.log(error);
             })
     }
 
@@ -34,6 +40,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 // console.log(loggedUser)
                 navigate(from, { replace: true })
+                swal("Good job!", "User Logged In Successfully!", "success");
             })
             .catch(error => {
                 console.log(error);
@@ -47,6 +54,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 // console.log(loggedUser)
                 navigate(from, { replace: true })
+                swal("Good job!", "User Logged In Successfully!", "success");
             })
             .catch(error => {
                 console.log(error);
@@ -63,7 +71,7 @@ const Login = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                         <form onSubmit={handleLogin} className="card-body">
-
+                            <p className='font-bold text-red-600'>{error}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

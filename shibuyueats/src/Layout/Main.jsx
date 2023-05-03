@@ -10,6 +10,7 @@ const Main = () => {
         <>
             <Header></Header>
             <Toaster />
+
             <section>
                 <Outlet />
             </section>

@@ -28,7 +28,8 @@ const ChefDetails = () => {
             {
                 data && <div className="hero min-h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%" >
                     <div className="hero-content flex-col lg:flex-row-reverse text-white">
-                        <img src={data.photoUrl} className="max-w-sm rounded-lg shadow-2xl " />
+                        <img src={data.photoUrl} className=" w-4/5 
+                        md:max-w-sm lg:max-w-sm rounded-lg shadow-2xl " />
                         <div>
                             <h3 className="text-5xl font-bold">{data.name}</h3>
                             <p className="py-6">{data.description}</p>
