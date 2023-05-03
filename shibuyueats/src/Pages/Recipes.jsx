@@ -5,7 +5,7 @@ const Recipes = ({ id }) => {
     const [recipes, setRecipes] = useState([])
     // console.log(recipes.length)
     useEffect(() => {
-        fetch(`http://localhost:5000/recipes/${id}`)
+        fetch(`https://shibuyueats-server-side-shamiul-lipu.vercel.app/recipes/${id}`)
             .then(res => res.json())
             .then(data => {
                 // setData(data)

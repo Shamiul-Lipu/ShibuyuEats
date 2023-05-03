@@ -17,7 +17,7 @@ const Reviews = () => {
     // console.log(data)
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://shibuyueats-server-side-shamiul-lipu.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

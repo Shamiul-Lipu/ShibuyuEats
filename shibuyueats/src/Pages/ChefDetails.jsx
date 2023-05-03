@@ -12,7 +12,7 @@ const ChefDetails = () => {
     // console.log(typeof recipe)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chefs/${id}`)
+        fetch(`https://shibuyueats-server-side-shamiul-lipu.vercel.app/chefs/${id}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)

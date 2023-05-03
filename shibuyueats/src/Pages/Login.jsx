@@ -3,11 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const Login = () => {
-    const { user, signInUser } = useContext(AuthContext);
+    const { user, signInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
+
+    // Email Login
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -23,6 +26,33 @@ const Login = () => {
                 console.log(error);
             })
     }
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    // Github Login
+    const handleGithubLogin = () => {
+        signInWithGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -61,8 +91,8 @@ const Login = () => {
                             <p>or Login with</p>
                         </div>
                         <div className='flex justify-evenly'>
-                            <button className="btn btn-outline btn-info"><FaGoogle className='m-1' /> Google</button>
-                            <button className="btn btn-outline"><FaGithub className='m-1' /> Github</button>
+                            <button onClick={handleGoogleLogin} className="btn btn-outline btn-info"><FaGoogle className='m-1' /> Google</button>
+                            <button onClick={handleGithubLogin} className="btn btn-outline"><FaGithub className='m-1' /> Github</button>
                         </div>
 
 

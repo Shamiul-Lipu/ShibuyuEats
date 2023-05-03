@@ -8,7 +8,7 @@ const Chefs = () => {
     const [data, setData] = useState([]);
     // console.log(data);
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://shibuyueats-server-side-shamiul-lipu.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
