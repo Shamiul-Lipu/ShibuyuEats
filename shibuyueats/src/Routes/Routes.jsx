@@ -10,6 +10,7 @@ import Chefs from "../Pages/Chefs";
 import ChefDetails from "../Pages/ChefDetails";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import Blog from "../Pages/Blog";
 
 const router = createBrowserRouter([
     {
@@ -29,16 +30,15 @@ const router = createBrowserRouter([
                 path: 'register',
                 element: <Register />
             },
-            // {
-            //     path: '/',
-            //     element: <Chefs />,
-            //     children: [
             {
                 path: '/chefs/:id',
                 element: <PrivateRoute><ChefDetails /></PrivateRoute>,
+            },
+            {
+                path: 'blog',
+                element: <Blog />
             }
-            //     ]
-            // }
+
         ]
     }
 

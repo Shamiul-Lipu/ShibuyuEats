@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Chefs from './Chefs';
-import Contributor from './Extra/Contributor';
+import Member from './Extra/Member';
 import Reviews from './Extra/Reviews';
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
             {/* Extra Features Sections */}
             {/* Extra Features Sections */}
             <section>
-                <Contributor></Contributor>
+                <Member></Member>
             </section>
             <section>
                 <Reviews></Reviews>
